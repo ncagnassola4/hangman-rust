@@ -1,18 +1,18 @@
-/* Subscribe to dcode on YouTube! */
-
-/* Random Numbers */
+/// Random Numbers
 extern crate rand;
 use rand::Rng;
 
-/* File Handling */
+/// Files
 use std::fs::File;
 use std::io::prelude::*;
 
-/* User Input */
+/// User input
 use std::io;
 
-const ALLOWED_ATTEMPTS: u8 = 5;
+/// Number of allowed attempts the user has to guess, changed this to 7 to allow for more guesses
+const ALLOWED_ATTEMPTS: u8 = 7;
 
+/// Edited the original code to show you what the word is if you lose
 struct Letter {
     character: char,
     revealed: bool
@@ -67,7 +67,7 @@ fn main() {
                 break;
             }
             GameProgress::Lost => {
-                println!("\nYou lost! ☹");
+                println!("\nYou lost! ☹ The word was: {}", selected_word);
                 break;
             }
         }
